@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--这个文件时自动生成Dao和domain还有mapper的工具-->
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--阻止生成注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+
+        <!--配置数据库连接信息  根据自己的账号密码连接方式驱动类-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/onlinevideo?characterEncoding=utf8&amp;useSSL=false"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定domain生成的位置需要修改报名-->
+        <javaModelGenerator targetPackage="com.zh.domain" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定sql映射文件生成的地址-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--指定dao接口生成的位置 修改报名-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zh.dao"  targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--指定每个表生成的策略 需要自己定义实体类与数据库之间的名字对应关系-->
+        <table tableName="banner" domainObjectName="Banner"></table>
+        <table tableName="course_topic" domainObjectName="CourseTopic"></table>
+        <table tableName="course_type" domainObjectName="CourseType"></table>
+        <table tableName="course_video" domainObjectName="CourseVideo"></table>
+        <table tableName="tools_item" domainObjectName="ToolsItem"></table>
+        <table tableName="tools_type" domainObjectName="ToolsType"></table>
+        <table tableName="user" domainObjectName="User"></table>
+<!--        <table tableName="tbl_emp" domainObjectName="Employee"></table>-->
+<!--        <table tableName="tbl_dept" domainObjectName="Department"></table>-->
+    </context>
+</generatorConfiguration>

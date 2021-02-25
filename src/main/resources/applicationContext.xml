@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
+
+    <!--除了controller注解以外的都扫描-->
+    <context:component-scan base-package="com.zh">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--加载properties配置文件-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties" />
+
+    <!--配置数据源-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${druid.driverClassName}"></property>
+        <property name="url" value="${druid.url}"></property>
+        <property name="username" value="${druid.username}"></property>
+        <property name="password" value="${druid.password}"></property>
+        <property name="initialSize" value="${druid.initialSize}"></property>
+        <property name="minIdle" value="${druid.minIdle}"></property>
+        <property name="maxActive" value="${druid.maxActive}"></property>
+        <property name="maxWait" value="${druid.maxWait}"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}"></property>
+        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}"></property>
+        <property name="maxEvictableIdleTimeMillis" value="${druid.maxEvictableIdleTimeMillis}"></property>
+    </bean>
+
+    <!--配置spring和mybatis整合-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--指定mybatis全局配置文件路径-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--指定数据源-->
+        <property name="dataSource" ref="druidDataSource"></property>
+        <!--指定mybatis映射文件位置-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+
+    <!--扫描mybatis的dao接口放入ioc容器-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zh.dao" />
+    </bean>
+
+    <!--事务控制器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--控制住数据源-->
+        <property name="dataSource" ref="druidDataSource"></property>
+    </bean>
+
+    <!--发送邮件-->
+
+    <bean id="MailServiceImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.qq.com"></property>
+        <property name="username" value="1932685116@qq.com"></property>
+        <property name="password" value="qyzhqjjltvuwfhae"></property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--开启事务-->
+    <aop:config>
+        <!--切入点表达式-->
+        <aop:pointcut id="txPoint" expression="execution(* com.zh.service..*(..))"/>
+        <!--配置事务增强-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"></aop:advisor>
+    </aop:config>
+    <!--配置事务增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--所有方法都进行事务-->
+            <tx:method name="*"/>
+            <!--get开始的所有方法只能读-->
+            <tx:method name="get*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+
+</beans>
