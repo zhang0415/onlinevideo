@@ -10,4 +10,19 @@ public class PageController {
     public String indexPage() {
         return "index";
     }
+    //工具
+    @RequestMapping("/tools")
+    public String tools(){
+        return "tools";
+    }
+    //课程
+    @RequestMapping("/course_list")
+    public String course(){
+        return "course_list";
+    }
+    //会员
+    @RequestMapping("/vip")
+    public String vip(){
+        return "vip";
+    }
 }

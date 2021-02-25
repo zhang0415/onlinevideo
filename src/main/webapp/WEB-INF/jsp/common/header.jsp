@@ -31,20 +31,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">课程</a>
+                    <a class="nav-link" href="/course_list">课程</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">会员</a>
+                    <a class="nav-link" href="/vip">会员</a>
                 </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">直播</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">工具</a>
+                    <a class="nav-link" href="/tools">工具</a>
                 </li>
             </ul>
 

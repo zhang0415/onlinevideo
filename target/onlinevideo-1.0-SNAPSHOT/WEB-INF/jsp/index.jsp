@@ -109,6 +109,65 @@
                 </a>
             </div>
         </div>
+        <br>
+            <%--最新常用框架类型--%>
+        <div class="border border-top-0 border-left-0  border-right-0  border-secondary">
+            <a href="#" class="float-right">更多 ></a>
+            <h4 class="text-center">常用框架</h4>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-4 mt-2">
+            <div class="col mb-3">
+                <a href="#" target="_blank">
+                    <div class="card select-shadow">
+                        <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Springboot</p>
+                            <p class="card-text">1000人学习</p>
+                            <span class="badge badge-pill badge-success ">免费</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col mb-3">
+                <a href="#" target="_blank">
+                    <div class="card select-shadow">
+                        <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Springboot</p>
+                            <p class="card-text">1000人学习</p>
+                            <span class="badge badge-pill badge-success ">免费</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col mb-3">
+                <a href="#" target="_blank">
+                    <div class="card select-shadow">
+                        <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Springboot</p>
+                            <p class="card-text">1000人学习</p>
+                            <span class="badge badge-pill badge-success ">免费</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col mb-3">
+                <a href="#" target="_blank">
+                    <div class="card select-shadow">
+                        <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Springboot</p>
+                            <p class="card-text">1000人学习</p>
+                            <span class="badge badge-pill badge-success ">免费</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
+    <%-- 尾部--%>
+    <jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
 </body>
 </html>
