@@ -41,7 +41,7 @@
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">直播</a>
+                    <a class="nav-link" href="/video">直播</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/tools">工具</a>

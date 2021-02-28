@@ -11,4 +11,12 @@
     <typeAliases>
     <package name="com.zh.domain"/>
     </typeAliases>
+
+    <!-- 配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        </plugin>
+    </plugins>
+
+
 </configuration>

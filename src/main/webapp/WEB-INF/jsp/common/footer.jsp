@@ -17,17 +17,17 @@
         <div style="background-color: white;box-shadow:0px 0px 1px 1px #ccc;">
             <div class="container footer-link">
                 <div class="row pt-5" >
-                    <a href="#" style="color: black" target="_blank" >帮助中心</a>
-                    <a href="#" style="color: black" target="_blank" >联系我们</a>
-                    <a href="#" style="color: black" target="_blank">关于我们</a>
-                    <a href="#" style="color: black" target="_blank">客服QQ：12345</a>
-                    <a href="#" style="color: black" target="_blank">官方粉丝群：678910</a>
+                    <a href="#" style="color: black" target="_blank" class="ml-2">帮助中心</a>
+                    <a href="#" style="color: black" target="_blank" class="ml-2">联系我们</a>
+                    <a href="#" style="color: black" target="_blank" class="ml-2">关于我们</a>
+                    <a href="#" style="color: black" target="_blank" class="ml-3">客服QQ：12345</a>
+                    <a href="#" style="color: black" target="_blank" class="ml-3">官方粉丝群：678910</a>
                 </div>
 
-                <div class="row pb-5 mt-2">
-                    <a href="#" target="_blank"> Copyright © 2019 上海XXXXXXX公司</a>
-                    <a href="#" target="_blank">Java课堂</a>
-                    <a href="#" target="_blank">沪ICP备xxxx</a>
+                <div class="row pb-5 mt-2" >
+                    <a href="#" target="_blank" class="ml-4"> Copyright © 2019 上海XXXXXX公司</a>
+                    <a href="#" target="_blank" class="ml-2">Java课堂</a>
+                    <a href="#" target="_blank" class="ml-2">沪ICP备xxxx</a>
                 </div>
             </div>
         </div>
