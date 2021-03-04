@@ -30,20 +30,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item <c:if test="${focalIndex == 1}">active</c:if>">
+
                     <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <c:if test="${focalIndex == 2}">active</c:if>">
                     <a class="nav-link" href="/course_list">课程</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <c:if test="${focalIndex == 3}">active</c:if>">
                     <a class="nav-link" href="/vip">会员</a>
                 </li>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <c:if test="${focalIndex == 4}">active</c:if>">
                     <a class="nav-link" href="/video">直播</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <c:if test="${focalIndex == 5}">active</c:if>">
                     <a class="nav-link" href="/tools">工具</a>
                 </li>
             </ul>

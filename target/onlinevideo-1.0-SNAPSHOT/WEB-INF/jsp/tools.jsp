@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -23,199 +24,58 @@
     <%--    工具导航--%>
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active" href="#">全部</a>
+            <a class="nav-link ${toolsTypeId == 0 ? "active" : ""} " href="/tools">全部</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">在线文档</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">极客文档</a>
-        </li>
+
+        <c:forEach items="${toolsAllType}" var="toolsType">
+            <li class="nav-item">
+                <a class="nav-link ${ toolsType.id == toolsTypeId ? "active" :""} "
+                   href="/toolsList/type/${toolsType.id}">${toolsType.name}</a>
+            </li>
+        </c:forEach>
+
     </ul>
 
-    <div class="row row-cols-1 row-cols-md-4 mt-2">
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
+        <c:forEach items="${toolsItemAll.list}" var="tools" varStatus="idx" begin="0">
+            <c:if test="${idx.index % 4 == 0 }">
+                <div class="row row-cols-1 row-cols-md-4 mt-2">
+            </c:if>
+            <div class="col mb-3">
+                <a href="${tools.toolsUrl}" target="_blank">
+                    <div class="card select-shadow">
+                        <img src="${tools.iconUrl}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">${tools.name}</p>
+                        </div>
                     </div>
+                </a>
+            </div>
+            <c:if test="${idx.index % 4 == 3 || idx.last}">
                 </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-4 mt-2">
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-4 mt-2">
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-4 mt-2">
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col mb-3">
-            <a href="#" target="_blank">
-                <div class="card select-shadow">
-                    <img src="/static/imgs/card-item.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text text-center">Springboot</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+            </c:if>
+        </c:forEach>
 
-    <%--        分页--%>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+        <%-- 分页--%>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item ${toolsItemAll.hasPreviousPage? "" :"disabled"} ">
+                    <a class="page-link" href="/toolsList/type/${toolsTypeId}?pageNum=${toolsItemAll.prePage}">上一页</a>
+                </li>
+                <%--            //导航条上的第一页--%>
+                <%--            private int navigateFirstPage;--%>
+                <%--            //导航条上的最后一页--%>
+                <%--            private int navigateLastPage;--%>
+                <c:forEach var="i" begin="${toolsItemAll.navigateFirstPage}" end="${toolsItemAll.navigateLastPage}">
+                    <li class=" page-item
+                ${toolsItemAll.pageNum == i ? "active" : "" } ">
+                        <a class="page-link" href="/toolsList/type/${toolsTypeId}?pageNum=${i}">${i}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item ${toolsItemAll.hasNextPage? "" :"disabled"} ">
+                    <a class="page-link" href="/toolsList/type/${toolsTypeId}?pageNum=${toolsItemAll.nextPage}">下一页</a>
+                </li>
+            </ul>
+        </nav>
 </div>
 <br>
 <br>

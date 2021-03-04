@@ -50,8 +50,14 @@
     </select>
     
     <!-- 插入数据 -->
-    <insert id="insertCourseType" parameterType="CourseType">
-        insert into course_type (id,typeName,flag) values (#{id},#{typeName},#{flag})
+    <insert id="insertCourseType" parameterType="courseType">
+        INSERT INTO course_type (
+            id, name, flag
+        ) VALUES (
+            #{id},
+            #{name},
+            #{flag}
+        )
     </insert>
     
     <!-- 修改数据 -->

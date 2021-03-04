@@ -6,6 +6,8 @@ import com.zh.service.CourseTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CourseTypeServiceImpl implements CourseTypeService {
     @Autowired
@@ -14,5 +16,10 @@ public class CourseTypeServiceImpl implements CourseTypeService {
     @Override
     public int insertCourseType(CourseType courseType) {
         return courseTypeDao.insertCourseType(courseType) ;
+    }
+
+    @Override
+    public List<CourseType> getAllCourseType() {
+        return courseTypeDao.findCourseTypeAll();
     }
 }

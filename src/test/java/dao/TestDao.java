@@ -3,15 +3,12 @@ package dao;
 
 import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
-import com.zh.dao.CourseTopicDao;
-import com.zh.dao.CourseTypeDao;
-import com.zh.dao.ToolsTypeDao;
-import com.zh.dao.UserDao;
-import com.zh.domain.CourseTopic;
-import com.zh.domain.CourseType;
-import com.zh.domain.ToolsType;
-import com.zh.domain.User;
+import com.zh.dao.*;
+import com.zh.domain.*;
 import com.zh.service.CourseTopicService;
+import com.zh.service.CourseTypeService;
+import com.zh.service.ToolsItemService;
+import com.zh.service.ToolsTypeService;
 import com.zh.service.impl.CourseTopicServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +27,7 @@ public class TestDao {
     CourseTypeDao courseTypeDao;
     @Test
     public void test1() {
-        CourseType courseType = new CourseType(5,"分布式",(byte)1);
+        CourseType courseType = new CourseType(5,"分布式",1);
         courseTypeDao.insertCourseType(courseType);
 
     }
@@ -81,4 +78,66 @@ public class TestDao {
 
     }
 
+    @Autowired
+    CourseTypeService courseTypeService;
+    @Test
+    public void t5(){
+        List<CourseType> listAll = courseTypeService.getAllCourseType();
+        for (CourseType courseType : listAll){
+            System.out.println(courseType.getName());
+        }
+    }
+
+    @Autowired
+    ToolsItemService toolsItemService;
+
+    @Test
+    public void t6(){
+        for (int i =101 ;i <=150 ;i++){
+            ToolsItem toolsItem = new ToolsItem();
+            toolsItem.setId(i);
+            toolsItem.setName("进制转换器"+i);
+            toolsItem.setToolsUrl("https://tool.lu/hexconvert/");
+            toolsItem.setIconUrl("/static/imgs/card-item.png");
+
+            toolsItem.setToolsTypeId(3);
+            toolsItemService.insertToolsItem(toolsItem);
+
+        }
+
+
+//        System.out.println(toolsItemService.getToolsItem(3).getSize());
+//        System.out.println(toolsItemService.getToolsItemAll().getSize());
+
+
+    }
+
+    @Autowired
+    ToolsTypeService toolsTypeService;
+
+    @Test
+    public void t7(){
+        System.out.println(toolsTypeService.getToolsTypeAll().size());
+    }
+
+
+    @Autowired
+    CourseVideoDao courseVideoDao;
+    @Test
+    public void t8() {
+//        for (int i = 100; i < 300; i++) {
+            CourseVideo courseVideo = new CourseVideo();
+            courseVideo.setId(300);
+            courseVideo.setName("Vue3.0（正式版）" + 300);
+            courseVideo.setFreeView(RandomUtil.randomInt(0, 2));
+            courseVideo.setTopicId(100);
+            courseVideo.setCreateTime(new Date());
+            courseVideo.setFlag(1);
+            courseVideo.setVideoUrl1("//player.bilibili.com/player.html?aid=712169146&bvid=BV1iD4y1o7dD&cid=238287362&page=1");
+            courseVideo.setVideoUrl2("none");
+
+            int code = courseVideoDao.insertCourseVideo(courseVideo);
+            System.out.println(code);
+//        }
+    }
 }

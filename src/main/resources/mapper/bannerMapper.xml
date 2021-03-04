@@ -62,7 +62,7 @@
     </select>
     
     <!-- 插入数据 -->
-    <insert id="insertBanner" parameterType="map">
+    <insert id="insertBanner" parameterType="banner">
         INSERT INTO banner (
             id, img_url, flag, type, target_url, create_time
         ) VALUES (

@@ -24,11 +24,11 @@
                     <a href="#" style="color: black" target="_blank" class="ml-3">官方粉丝群：678910</a>
                 </div>
 
-                <div class="row pb-5 mt-2" >
-                    <a href="#" target="_blank" class="ml-4"> Copyright © 2019 上海XXXXXX公司</a>
-                    <a href="#" target="_blank" class="ml-2">Java课堂</a>
-                    <a href="#" target="_blank" class="ml-2">沪ICP备xxxx</a>
-                </div>
+<%--                <div class="row pb-5 mt-2" >--%>
+<%--                    <a href="#" target="_blank" class="ml-4"> Copyright © 2019 上海XXXXXX公司</a>--%>
+<%--                    <a href="#" target="_blank" class="ml-2">Java课堂</a>--%>
+<%--                    <a href="#" target="_blank" class="ml-2">沪ICP备xxxx</a>--%>
+<%--                </div>--%>
             </div>
         </div>
     </body>

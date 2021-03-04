@@ -16,18 +16,12 @@ public class CourseType implements java.io.Serializable {
     private Integer id;
 
     /** name */
-    private String typeName;
-
+    private String name;
     /** flag */
-    private Byte flag;
-
-    public CourseType(Integer id, String typeName, Byte flag) {
-        this.id = id;
-        this.typeName = typeName;
-        this.flag = flag;
+    private Integer flag;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
-    public CourseType(){}
-
 
     public Integer getId() {
         return id;
@@ -37,19 +31,29 @@ public class CourseType implements java.io.Serializable {
         this.id = id;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getName() {
+        return name;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Byte getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(Byte flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
+
+    public CourseType(Integer id, String name, Integer flag) {
+        this.id = id;
+        this.name = name;
+        this.flag = flag;
+    }
+
+
+
+
 }
