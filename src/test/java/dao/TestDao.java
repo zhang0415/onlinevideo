@@ -5,10 +5,7 @@ import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
 import com.zh.dao.*;
 import com.zh.domain.*;
-import com.zh.service.CourseTopicService;
-import com.zh.service.CourseTypeService;
-import com.zh.service.ToolsItemService;
-import com.zh.service.ToolsTypeService;
+import com.zh.service.*;
 import com.zh.service.impl.CourseTopicServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -39,6 +37,8 @@ public class TestDao {
         user.setEmail("123.@qq.com");
         userDao.insertUser(user);
     }
+
+
 
     @Autowired
     CourseTopicDao courseTopicDao;
@@ -140,4 +140,23 @@ public class TestDao {
             System.out.println(code);
 //        }
     }
+
+    @Autowired
+    UserService userService;
+    @Test
+    public void  test12(){
+//        PageInfo<User> userList = userService.findAllUser();
+//        System.out.println(userList.getSize());
+
+//        user.setFlag(1);
+//        System.out.println(user);
+
+
+//        map.put("id",5);
+//        map.put("flag",0);
+
+//        map.put("createTime",user.getCreateTime());
+
+    }
+
 }
